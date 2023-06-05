@@ -1,0 +1,29 @@
+//Write a program using Arduino to control LED (One or more ON/OFF) Or Blinking.
+void setup() {
+// set the mode of the pins a s GPIO and direction as OUTPUT
+pinMode(0, OUTPUT);
+pinMode(1, OUTPUT);
+pinMode(2, OUTPUT);
+pinMode(4, OUTPUT);
+}
+void loop() {
+// put your main code here, to run repeatedly:
+//Make LED ON
+digitalWrite(0, HIGH);
+delay(100);
+digitalWrite(1, HIGH);
+delay(100);
+digitalWrite(2, HIGH);
+delay(100);
+digitalWrite(4, HIGH);
+delay(200);
+//Make LED OFF
+digitalWrite(0, LOW);
+delay(100);
+digitalWrite(1, LOW);
+delay(100);
+digitalWrite(2, LOW);
+delay(100);
+digitalWrite(4, LOW);
+delay(200);
+}

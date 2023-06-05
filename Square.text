@@ -1,0 +1,24 @@
+//Write a program that asks the user for a number and outputs the number squared that is
+entered.
+void setup() {
+// put your setup code here, to run once:
+Serial.begin(9600);
+Serial.println("input the number");
+}
+void loop() {
+int input;
+while(1){// put your main code here, to run repeatedly:
+input = Serial.parseInt();
+if(input)
+break;
+}
+int inputSquared = sq(input);
+int inputCubed = sq(input)*input;
+int inputsqrt = sqrt(input);
+int inputcbrt = cbrt(input);
+Serial.println(int(inputSquared));
+Serial.println(int(inputCubed));
+Serial.println(int(inputsqrt));
+Serial.println(int(inputcbrt));
+delay(500);
+}

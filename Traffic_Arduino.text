@@ -1,0 +1,75 @@
+#define northred A1
+#define northgreen A2
+#define northamber 11
+#define southred A3
+#define southgreen 10
+#define southamber 13
+#define eastred 6
+#define eastgreen 0
+#define eastamber 5
+#define westred A0
+#define westgreen 12
+#define westamber 9
+void trafficDefault(unsigned char state)
+{
+digitalWrite(northgreen,state);
+digitalWrite(southgreen,state);
+digitalWrite(eastgreen,state);
+digitalWrite(westgreen,state);
+digitalWrite(northred,state);
+digitalWrite(southred,state);
+digitalWrite(eastred,state);
+digitalWrite(westred,state);
+digitalWrite(northamber,state);
+digitalWrite(southamber,state);
+digitalWrite(eastamber,state);
+digitalWrite(westamber,state);
+}
+void setup() {
+// put your setup code here, to run once:
+pinMode(northred,OUTPUT);
+pinMode(northgreen,OUTPUT);
+pinMode(northamber,OUTPUT);
+pinMode(southred,OUTPUT);
+pinMode(southgreen,OUTPUT);
+pinMode(southamber,OUTPUT);
+pinMode(eastred,OUTPUT);
+pinMode(eastgreen,OUTPUT);
+pinMode(eastamber,OUTPUT);
+pinMode(westred,OUTPUT);
+pinMode(westgreen,OUTPUT);
+pinMode(westamber,OUTPUT);
+trafficDefault(1);
+delay(1000);
+trafficDefault(0);
+delay(1000);
+}
+void loop() {
+// put your main code here, to run repeatedly:
+//north-south
+//digitalWrite(southgreen,1);
+digitalWrite(northgreen,1);
+digitalWrite(eastred,1);
+digitalWrite(westred,1);
+delay(5000);
+trafficDefault(0);
+digitalWrite(northamber,1);
+digitalWrite(southamber,1);
+digitalWrite(eastred,1);
+digitalWrite(westred,1);
+delay(5000);
+trafficDefault(0);
+//east-west
+digitalWrite(eastgreen,1);
+digitalWrite(westgreen,1);
+digitalWrite(northred,1);
+digitalWrite(southred,1);
+delay(5000);
+trafficDefault(0);
+digitalWrite(eastamber,1);
+digitalWrite(westamber,1);
+digitalWrite(northred,1);
+digitalWrite(southred,1);
+delay(5000);
+trafficDefault(0);
+}

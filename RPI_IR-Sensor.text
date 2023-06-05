@@ -1,0 +1,26 @@
+import time
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+ir_sensor_pin=18
+led_pin=17
+buzzer_pin = 11
+GPIO.setup(ir_sensor_pin,GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(led_pin,GPIO.OUT)
+GPIO.setup(buzzer_pin,GPIO.OUT)
+def blink_led(channel):
+if GPIO.input(ir_sensor_pin):
+GPIO.output(led_pin,GPIO.LOW)
+GPIO.output(buzzer_pin,GPIO.HIGH)
+time.sleep(0.5)
+GPIO.output(buzzer_pin,GPIO.LOW)
+else:
+GPIO.output(led_pin,GPIO.HIGH)
+ 
+try:
+GPIO.add_event_detect(ir_sensor_pin,GPIO.BOTH,callback=blink_led)
+while (True):
+pass
+except KeyboardInterrupt:
+pass
+finally:
+GPIO.cleanup()
